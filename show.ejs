@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3c3939;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navigation {
+            width: 100%;
+            height: 4rem;
+            display: flex;
+            background-color: #888;
+            padding-left: 4rem;
+            align-items: center;
+        }
+
+        .navigation h3 {
+            margin-right: auto;
+        }
+
+        .btns1 {
+            margin-right: 4rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn1:hover {
+            box-shadow: 1px #840a0a;
+            background-color: #840a0a;
+        }
+
+        .btn1 a {
+            text-decoration: none;
+            width: 4rem;
+            height: 2rem;
+            background-color: #e70c0c;
+            padding: 1rem 1.3rem;
+            font-weight: 500;
+            color: white;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #posts-section {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            padding-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 2vw 2vw;
+        }
+
+        .post-card {
+            width: 20%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 4px;
+        }
+
+        .post-card img {
+            width: 90%;
+            height: auto;
+            border-radius: 10%;
+            overflow: hidden;
+            padding: 1vw 1vw;
+        }
+
+        .post-card h4 {
+            margin-top: 1rem;
+            color: black;
+            padding: 1vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <h3>LOGO</h3>
+        <div class="btns1">
+            <a href="/profile">Profile</a>
+            <a class="btn1" href="/feed">Feed</a>
+            <a class="btn1" href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div id="posts-section">
+        <% user.posts.forEach(function(elem) { %>
+            <div class="post-card">
+                <div class="dp">
+                    <img src="/images/uploads/<%= elem.image %>" alt="">
+                    <h4>
+                        <%= elem.title %>
+                    </h4>
+                </div>
+
+            </div>
+            <% }) %>
+    </div>
+
+</body>
+
+</html>
